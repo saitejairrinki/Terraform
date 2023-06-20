@@ -41,24 +41,24 @@
         <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" width="70">
     </td>
     <td align='center'  width="190">
-        <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg">
+        <img src="https://cdn.worldvectorlogo.com/logos/google-cloud-2.svg" width="70" >
     </td>
 </tr>
 <tr>
     <td align='center' width="190">
-        <img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg" width="200">
+        <img src="https://www.svgrepo.com/show/376353/terraform.svg" width="80" height="75" >
     </td>
     <td align='center' width="190">
-        <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" width="100">
+        <img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg" width="80" height="75">
+    </td>
+    <td align='center' width="190">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" width="50" >
     </td>
      <td align='center' width="190">
-        <img src="https://www.vectorlogo.zone/logos/golang/golang-official.svg" width="110">
+        <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" width="70">
     </td>
-    <td align='center' width="190">
-        <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg">
-    </td>
-    <td align='center'>
-        <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-ar21.svg" width="120">
+    <td align='center'  width="190">
+        <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg">
     </td>
 </tr>
 <tr>
