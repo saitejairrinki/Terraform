@@ -31,13 +31,36 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
    terraform import aws_s3_bucket.tejadevops_bucket tejadevops-backups
    ```
 
+   **Expected Output:**
+   ```c
+   aws_s3_bucket.tejadevops_bucket: Importing from ID "tejadevops-backups"...
+   aws_s3_bucket.tejadevops_bucket: Import prepared!
+     Prepared aws_s3_bucket for import
+   aws_s3_bucket.tejadevops_bucket: Refreshing state... [id=tejadevops-backups]
+
+   Import successful!
+
+   The resources that were imported are shown above. These resources are now in
+   your Terraform state and will henceforth be managed by Terraform.
+   ```
+
 4. **Check the State Sync**  
    Use the following command to check if the state is successfully synchronized:
    ```bash
    terraform state show aws_s3_bucket.tejadevops_bucket
    ```
 
-   This will display the current state of the imported S3 bucket, confirming that the resource has been successfully imported.
+   **Expected Output:**
+   ```c
+   # aws_s3_bucket.tejadevops_bucket:
+   resource "aws_s3_bucket" "tejadevops_bucket" {
+     acl                         = "private"
+     bucket                      = "tejadevops-backups"
+     id                          = "tejadevops-backups"
+     region                      = "us-east-1"
+     # (other attributes are omitted for brevity)
+   }
+   ```
 
 5. **Update the Resource Block**  
    Add the required arguments to the S3 resource block in `main.tf` to match the current configuration of the bucket:
@@ -52,7 +75,26 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
    Run the following commands to validate the configuration and ensure no changes are needed:
    ```bash
    terraform validate
+   ```
+
+   **Expected Output:**
+   ```bash
+   Success! The configuration is valid.
+   ```
+
+   Then, run:
+   ```bash
    terraform plan
+   ```
+
+   **Expected Output:**
+   ```c
+   aws_s3_bucket.tejadevops_bucket: Refreshing state... [id=tejadevops-backups]
+
+   No changes. Your infrastructure matches the configuration.
+
+   Terraform has compared your real infrastructure against your configuration
+   and found no differences, so no changes are needed.
    ```
 
 ### ✅ **Expected Outcome:**
@@ -89,13 +131,36 @@ In another scenario, you have an **EC2 instance** running in your AWS environmen
    terraform import aws_instance.tejadevops_instance i-0abc123def456ghi
    ```
 
+   **Expected Output:**
+   ```c
+   aws_instance.tejadevops_instance: Importing from ID "i-0abc123def456ghi"...
+   aws_instance.tejadevops_instance: Import prepared!
+     Prepared aws_instance for import
+   aws_instance.tejadevops_instance: Refreshing state... [id=i-0abc123def456ghi]
+
+   Import successful!
+
+   The resources that were imported are shown above. These resources are now in
+   your Terraform state and will henceforth be managed by Terraform.
+   ```
+
 4. **Check the State Sync**  
    After importing, check the synchronization of the state file with:
    ```bash
    terraform state show aws_instance.tejadevops_instance
    ```
 
-   This command will show the current state of the imported EC2 instance, verifying that the resource is successfully managed by Terraform.
+   **Expected Output:**
+   ```c
+   # aws_instance.tejadevops_instance:
+   resource "aws_instance" "tejadevops_instance" {
+     ami                         = "ami-0c55b159cbfafe1f0"
+     instance_type               = "t2.micro"
+     key_name                    = "tejadevops-key"
+     id                          = "i-0abc123def456ghi"
+     # (other attributes are omitted for brevity)
+   }
+   ```
 
 5. **Update the Resource Block**  
    Add the appropriate arguments to the EC2 resource block in `main.tf`:
@@ -114,7 +179,26 @@ In another scenario, you have an **EC2 instance** running in your AWS environmen
    Run the validation and planning commands:
    ```bash
    terraform validate
+   ```
+
+   **Expected Output:**
+   ```bash
+   Success! The configuration is valid.
+   ```
+
+   Then, run:
+   ```bash
    terraform plan
+   ```
+
+   **Expected Output:**
+   ```c
+   aws_instance.tejadevops_instance: Refreshing state... [id=i-0abc123def456ghi]
+
+   No changes. Your infrastructure matches the configuration.
+
+   Terraform has compared your real infrastructure against your configuration
+   and found no differences, so no changes are needed.
    ```
 
 ### ✅ **Expected Outcome:**
