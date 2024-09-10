@@ -225,8 +225,6 @@ Assume you have an EC2 instance with ID `i-0def456ghi789jkl` that hosts a web ap
 - `terraform validate`: Validate the syntax and integrity of your Terraform files.
 - `terraform plan`: Preview changes before applying them.
 
----
-
 ## 🎉 **Conclusion**
 
 Terraform import is a powerful tool to bring existing resources under Terraform management. By using state commands after import, you can ensure synchronization and maintain control of your infrastructure with confidence. Give it a try and experience the benefits of managing your infrastructure as code! 🌟
