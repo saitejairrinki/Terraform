@@ -1,12 +1,12 @@
 # 🌍 **Mastering Terraform Import: Bringing Existing Infrastructure Under Terraform Control** 🔄🚀
-
 ### Introduction
 
-In the world of Infrastructure as Code (IaC), **Terraform** is a popular tool that enables teams to define, provision, and manage infrastructure using a declarative configuration language. But what if you've already created resources manually via the AWS console and now want to manage them with Terraform? That's where the powerful `terraform import` command comes in handy! 🚀
+In the world of Infrastructure as Code (IaC), **Terraform** is a popular tool that enables teams to define, provision, and manage infrastructure using a declarative configuration language. But what if you've already created resources manually via the AWS console and now want to manage them with Terraform? That's where the powerful `terraform import` command comes in handy! 🚀 
 
 **Terraform Import** allows you to bring existing resources under Terraform management without recreating them. In this blog, we'll explore two scenarios: importing an S3 bucket and an EC2 instance into Terraform. We'll walk you through the steps, provide real-time examples, and include state commands to check the synchronization!
-
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/saitejairrinki/Terraform/main/img/terraformimport.png" alt="Image">
+</p>
 
 ## 🎯 **Scenario 1: Importing an S3 Bucket**
 
@@ -106,7 +106,6 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
 
 Let’s say you created a bucket named `tejadevops-logs` to store backups. Now, you decide to manage it with Terraform. You would follow the above steps, substituting `tejadevops-backups` with `tejadevops-logs`.
 
----
 
 ## 🎯 **Scenario 2: Importing an EC2 Instance**
 
