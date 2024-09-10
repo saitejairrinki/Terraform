@@ -22,19 +22,19 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
 2. **Create an Empty Resource Block**  
    Add an empty S3 resource block to `main.tf`:
    ```hcl
-   resource "aws_s3_bucket" "example" {}
+   resource "aws_s3_bucket" "tejadevops_bucket" {}
    ```
 
 3. **Run Terraform Import Command**  
-   Use the `terraform import` command to bring the existing S3 bucket into the Terraform state. Replace `your-bucket-name` with the actual name of your S3 bucket:
+   Use the `terraform import` command to bring the existing S3 bucket into the Terraform state. Replace `tejadevops-backups` with the actual name of your S3 bucket:
    ```bash
-   terraform import aws_s3_bucket.example your-bucket-name
+   terraform import aws_s3_bucket.tejadevops_bucket tejadevops-backups
    ```
 
 4. **Check the State Sync**  
    Use the following command to check if the state is successfully synchronized:
    ```bash
-   terraform state show aws_s3_bucket.example
+   terraform state show aws_s3_bucket.tejadevops_bucket
    ```
 
    This will display the current state of the imported S3 bucket, confirming that the resource has been successfully imported.
@@ -42,8 +42,8 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
 5. **Update the Resource Block**  
    Add the required arguments to the S3 resource block in `main.tf` to match the current configuration of the bucket:
    ```hcl
-   resource "aws_s3_bucket" "example" {
-     bucket = "your-bucket-name"
+   resource "aws_s3_bucket" "tejadevops_bucket" {
+     bucket = "tejadevops-backups"
      acl    = "private"
    }
    ```
@@ -62,7 +62,7 @@ Imagine you have created an **S3 bucket** in the AWS Management Console, and you
 
 ### 🕵️‍♂️ **Real-Time Example:**
 
-Let’s say you created a bucket named `my-data-bucket` to store backups. Now, you decide to manage it with Terraform. You would follow the above steps, substituting `your-bucket-name` with `my-data-bucket`.
+Let’s say you created a bucket named `tejadevops-logs` to store backups. Now, you decide to manage it with Terraform. You would follow the above steps, substituting `tejadevops-backups` with `tejadevops-logs`.
 
 ---
 
@@ -80,19 +80,19 @@ In another scenario, you have an **EC2 instance** running in your AWS environmen
 2. **Create an Empty EC2 Resource Block**  
    Add an empty EC2 resource block to `main.tf`:
    ```hcl
-   resource "aws_instance" "example" {}
+   resource "aws_instance" "tejadevops_instance" {}
    ```
 
 3. **Run Terraform Import Command**  
-   Import the EC2 instance using its Instance ID. Replace `your-instance-id` with the actual EC2 instance ID:
+   Import the EC2 instance using its Instance ID. Replace `i-0abc123def456ghi` with the actual EC2 instance ID:
    ```bash
-   terraform import aws_instance.example your-instance-id
+   terraform import aws_instance.tejadevops_instance i-0abc123def456ghi
    ```
 
 4. **Check the State Sync**  
    After importing, check the synchronization of the state file with:
    ```bash
-   terraform state show aws_instance.example
+   terraform state show aws_instance.tejadevops_instance
    ```
 
    This command will show the current state of the imported EC2 instance, verifying that the resource is successfully managed by Terraform.
@@ -100,12 +100,12 @@ In another scenario, you have an **EC2 instance** running in your AWS environmen
 5. **Update the Resource Block**  
    Add the appropriate arguments to the EC2 resource block in `main.tf`:
    ```hcl
-   resource "aws_instance" "example" {
+   resource "aws_instance" "tejadevops_instance" {
      instance_type = "t2.micro"
      ami           = "ami-0c55b159cbfafe1f0"
-     key_name      = "your-key-name"
+     key_name      = "tejadevops-key"
      tags = {
-       Name = "ImportedInstance"
+       Name = "tejadevops-web"
      }
    }
    ```
@@ -124,7 +124,7 @@ In another scenario, you have an **EC2 instance** running in your AWS environmen
 
 ### 🕵️‍♂️ **Real-Time Example:**
 
-Assume you have an EC2 instance with ID `i-0abcd1234efgh5678` that hosts a web application. To manage it with Terraform, replace `your-instance-id` with `i-0abcd1234efgh5678` and add the necessary configuration details.
+Assume you have an EC2 instance with ID `i-0def456ghi789jkl` that hosts a web application. To manage it with Terraform, replace `i-0abc123def456ghi` with `i-0def456ghi789jkl` and add the necessary configuration details.
 
 ---
 
