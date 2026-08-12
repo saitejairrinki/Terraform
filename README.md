@@ -74,6 +74,10 @@ variable "key_name" {
   description = "EC2 key pair name"
   type        = string
 }
+variable "ec2_sg" {
+  description = "EC2 SG"
+  type        = string
+}
 ```
 
 ---
@@ -83,22 +87,15 @@ variable "key_name" {
 These are **sample values**. Replace them with your actual AWS values.
 
 ```hcl
-aws_region = "ap-south-1"
-
-ami_id = "ami-xxxxxxxxxxxxxxxxx"
-
+bucket_name = "devopsaugust122026"
+aws_region = "us-east-1"
+ami_id = "ami-0b6d9d3d33ba97d99"
 instance_type = "t3.micro"
-
-instance_name = "devops-ec2"
-
-key_name = "my-ec2-key"
+instance_name = "Chilling"
+ec2_sg = "sg-0b6140854f3cfff24"
+key_name = "chilling"
 ```
 
-⚠️ Replace:
-
-```text
-ami-xxxxxxxxxxxxxxxxx
-```
 
 with a valid AMI ID from your selected AWS region.
 
@@ -117,11 +114,21 @@ with your actual EC2 key-pair name.
 This is where we create the EC2 instance.
 
 ```hcl
+resource "aws_s3_bucket" "example" {
+  bucket = var.bucket_name 
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
 resource "aws_instance" "ec2" {
 
   ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
+  vpc_security_group_ids = [var.ec2_sg]
 
   tags = {
     Name = var.instance_name
